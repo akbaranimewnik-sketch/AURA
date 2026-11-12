@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA — Neumorphic Smart Hub & Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Top Header -->
+    <header class="header-card neu-flat">
+      <div class="brand">
+        <div class="logo-box neu-icon-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="m4.93 4.93 4.24 4.24"/>
+            <path d="m14.83 9.17 4.24-4.24"/>
+            <path d="m14.83 14.83 4.24 4.24"/>
+            <path d="m9.17 14.83-4.24 4.24"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AURA</h1>
+          <span class="status-tag"><span class="dot"></span> Online</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="neu-btn neu-btn-icon" aria-label="Mavzuni almashtirish" title="Light / Dark Neumorphism">
+          <svg id="themeIconSun" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/><path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/><path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+          <svg id="themeIconMoon" class="icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+
+        <!-- Notification -->
+        <button class="neu-btn neu-btn-icon notification-btn" title="Bildirishnomalar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="badge"></span>
+        </button>
+
+        <!-- User Profile Pill -->
+        <div class="user-pill neu-inset">
+          <div class="avatar-ring neu-flat">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <div class="user-info">
+            <span class="user-name">Ali Com</span>
+            <span class="user-role">Premium Workspace</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid Dashboard -->
+    <main class="dashboard-grid">
+
+      <!-- COLUMN 1: Ambient Music & Sound Studio -->
+      <section class="card neu-flat music-card">
+        <div class="card-header">
+          <div class="section-badge neu-inset">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+            <span>Ambient Soundspace</span>
+          </div>
+          <span class="pill-live neu-flat">Hi-Fi Audio</span>
+        </div>
+
+        <!-- Vinyl Artwork Center -->
+        <div class="player-cover-container">
+          <div class="vinyl-outer neu-inset">
+            <div class="vinyl-disc neu-flat" id="vinylDisc">
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-center neu-inset">
+                <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=80')"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-details text-center">
+          <h2 id="trackTitle">Lofi Neon Reverie</h2>
+          <p id="trackArtist">Aura Ambient Soundlab</p>
+        </div>
+
+        <!-- Waveform Progress Bar -->
+        <div class="progress-section">
+          <div class="time-row">
+            <span id="currentTime">01:24</span>
+            <span id="totalTime">03:45</span>
+          </div>
+          <div class="neu-slider-track" id="progressTrack">
+            <div class="neu-slider-fill" id="progressFill" style="width: 37%;"></div>
+            <div class="neu-slider-thumb" id="progressThumb" style="left: 37%;"></div>
+          </div>
+        </div>
+
+        <!-- Playback Controls -->
+        <div class="music-controls">
+          <button class="neu-btn neu-btn-icon" id="shuffleBtn" title="Aralashtirish">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m16 17 4 4-4 4"/><path d="M4 17h16"/>
+            </svg>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="prevTrackBtn" title="Oldingi trek">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
+            </svg>
+          </button>
+          <button class="neu-btn neu-btn-icon play-main-btn neu-btn-primary" id="playBtn" title="Ijro etish / To'xtatish">
+            <svg id="playIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <svg id="pauseIcon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+            </svg>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="nextTrackBtn" title="Keyingi trek">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+            </svg>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="soundToneBtn" title="Audio Generator">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Ambient Sound Generator Knobs (Web Audio) -->
+        <div class="ambient-sound-board neu-inset">
+          <div class="sound-chip neu-flat active" data-sound="rain">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+              <path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/>
+            </svg>
+            <span>Yomg'ir</span>
+          </div>
+          <div class="sound-chip neu-flat" data-sound="breeze">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+              <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+              <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+            </svg>
+            <span>Shabada</span>
+          </div>
+          <div class="sound-chip neu-flat" data-sound="lofi">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/>
+            </svg>
+            <span>Chill Synth</span>
+          </div>
+        </div>
+
+        <!-- Volume Slider -->
+        <div class="volume-row">
+          <button class="neu-btn neu-btn-icon-sm" id="muteBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            </svg>
+          </button>
+          <div class="neu-range-wrap">
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" class="neu-range">
+          </div>
+          <span class="volume-val" id="volumeVal">70%</span>
+        </div>
+      </section>
+
+      <!-- COLUMN 2: Smart Climate & Environment Dial -->
+      <section class="card neu-flat climate-card">
+        <div class="card-header">
+          <div class="section-badge neu-inset">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+            </svg>
+            <span>Iqlim & Smart Muhit</span>
+          </div>
+          <div class="status-pill neu-inset">
+            <span class="pulse-indicator"></span>
+            <span>Avtomatik rejim</span>
+          </div>
+        </div>
+
+        <!-- Interactive Rotary Dial -->
+        <div class="dial-container">
+          <div class="neu-dial-outer neu-inset">
+            <div class="dial-ticks">
+              <!-- Generated via JS ticks -->
+            </div>
+            <div class="neu-dial-knob neu-flat" id="dialKnob">
+              <div class="dial-indicator"></div>
+              <div class="dial-center neu-inset">
+                <span class="temp-display" id="tempDisplay">22.5<span class="deg">°C</span></span>
+                <span class="temp-sub">Optimal qulaylik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Temperature Stepper Buttons -->
+        <div class="dial-buttons-row">
+          <button class="neu-btn neu-btn-round" id="tempDownBtn" title="Pasaytirish">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <span class="dial-helper">Haroratni moslash</span>
+          <button class="neu-btn neu-btn-round" id="tempUpBtn" title="Ko'tarish">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mode Selector (Neumorphic Tabs) -->
+        <div class="neu-segmented-control neu-inset">
+          <button class="neu-segment active" data-mode="cool">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m17 7-5 5-5-5"/><path d="m17 17-5-5-5 5"/></svg>
+            Salqin
+          </button>
+          <button class="neu-segment" data-mode="heat">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/></svg>
+            Iliq
+          </button>
+          <button class="neu-segment" data-mode="breeze">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/></svg>
+            Shabada
+          </button>
+          <button class="neu-segment" data-mode="eco">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+            Eco
+          </button>
+        </div>
+
+        <!-- Environmental Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-item neu-flat">
+            <div class="metric-icon-wrap neu-inset">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+            </div>
+            <div class="metric-data">
+              <span class="m-title">Namlik</span>
+              <span class="m-val" id="humidityVal">48%</span>
+            </div>
+          </div>
+
+          <div class="metric-item neu-flat">
+            <div class="metric-icon-wrap neu-inset">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12a6 6 0 0 1 12 0v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/>
+              </svg>
+            </div>
+            <div class="metric-data">
+              <span class="m-title">Havo sifati</span>
+              <span class="m-val green">98 AQI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Light Brightness Dimmer Slider -->
+        <div class="dimmer-box neu-flat">
+          <div class="dimmer-header">
+            <span>Xona yoritilishi</span>
+            <span id="lightLevelText">80%</span>
+          </div>
+          <div class="neu-range-wrap">
+            <input type="range" id="lightSlider" min="0" max="100" value="80" class="neu-range">
+          </div>
+        </div>
+      </section>
+
+      <!-- COLUMN 3: Productivity & Neumorphic Interactive Lab -->
+      <section class="card neu-flat productivity-card">
+        <div class="card-header">
+          <div class="section-badge neu-inset">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>Fokus & Pomodoro</span>
+          </div>
+          <span class="badge-count neu-inset">25 min</span>
+        </div>
+
+        <!-- Pomodoro Ring -->
+        <div class="timer-wrapper">
+          <div class="timer-outer neu-inset">
+            <div class="timer-circle neu-flat">
+              <div class="timer-inner neu-inset">
+                <span class="timer-digits" id="timerDigits">25:00</span>
+                <span class="timer-mode-label" id="timerModeLabel">Chuqur fokus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timer Controls -->
+        <div class="timer-actions">
+          <button class="neu-btn" id="startTimerBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span id="timerBtnText">Boshlash</span>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="resetTimerBtn" title="Qayta o'rnatish">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Quick Switcher Hub (Interactive Neumorphic Toggles) -->
+        <div class="quick-devices-title">
+          <h4>Tezkor Qurilmalar</h4>
+        </div>
+        <div class="devices-list">
+          <div class="device-row neu-flat">
+            <div class="device-info">
+              <span class="dev-name">Smart Wi-Fi 6</span>
+              <span class="dev-state" id="wifiState">Faol • 1.2 Gb/s</span>
+            </div>
+            <label class="neu-switch">
+              <input type="checkbox" id="toggleWifi" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="device-row neu-flat">
+            <div class="device-info">
+              <span class="dev-name">Havo Tozalagich</span>
+              <span class="dev-state" id="purifierState">Jim rejim • 24dB</span>
+            </div>
+            <label class="neu-switch">
+              <input type="checkbox" id="togglePurifier" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="device-row neu-flat">
+            <div class="device-info">
+              <span class="dev-name">Aroma Diffuzor</span>
+              <span class="dev-state" id="diffuserState">O'chiq</span>
+            </div>
+            <label class="neu-switch">
+              <input type="checkbox" id="toggleDiffuser">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Quick Tasks with Neumorphic Checkbox -->
+        <div class="tasks-container neu-inset">
+          <div class="task-header">
+            <span>Bugungi vazifalar</span>
+            <span class="task-counter" id="taskCount">2/3</span>
+          </div>
+          <div class="task-item">
+            <label class="neu-checkbox-label">
+              <input type="checkbox" checked class="neu-checkbox" data-task="1">
+              <span class="checkbox-custom neu-flat"></span>
+              <span class="task-text done">Neumorphism dizayn arxitekturasi</span>
+            </label>
+          </div>
+          <div class="task-item">
+            <label class="neu-checkbox-label">
+              <input type="checkbox" checked class="neu-checkbox" data-task="2">
+              <span class="checkbox-custom neu-flat"></span>
+              <span class="task-text done">Soft UI soyalarini kalibrlash</span>
+            </label>
+          </div>
+          <div class="task-item">
+            <label class="neu-checkbox-label">
+              <input type="checkbox" class="neu-checkbox" data-task="3">
+              <span class="checkbox-custom neu-flat"></span>
+              <span class="task-text">Loyiha taqdimotini yakunlash</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Showcase: Neumorphism Design Systems & Components Guide -->
+    <footer class="neu-footer neu-flat">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>AURA • Neumorphic UI Design System</h3>
+          <p>Yumshoq yorug'lik va relyefli soyalar (Convex, Concave, Inset, Embossed) bilan ishlangan zamonaviy interfeys.</p>
+        </div>
+        <div class="footer-stats">
+          <div class="stat-box neu-inset">
+            <span class="stat-num">100%</span>
+            <span class="stat-lbl">Pure CSS Soft UI</span>
+          </div>
+          <div class="stat-box neu-inset">
+            <span class="stat-num">Dual</span>
+            <span class="stat-lbl">Light & Dark Mode</span>
+          </div>
+          <div class="stat-box neu-inset">
+            <span class="stat-num">Web Audio</span>
+            <span class="stat-lbl">Haqiqiy Ovozlar</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
